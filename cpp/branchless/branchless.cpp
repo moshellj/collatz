@@ -35,12 +35,12 @@ int main(){
 		i = n;
 		length = 0;
 		while(i > 1){
-			if(i & 1){
-				i = i+i+i+1;
-			}else{
-				i = i >> 1;//bitwise operators are good.
-			}
-			++length;
+			// BRANCHLESS COLLATZ!
+			// Removes the unpredictable inner branch and replaces it with arithmetic!
+			// Reduces user time from 89 min to 83 min. Longer than expected, but good.
+			odd = i & 1;
+			i = i+((i+i+1)*odd) >> 1;
+			length += 1 + odd;
 		}
 		if(length > tenth){
 			//new element for list
