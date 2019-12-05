@@ -4,6 +4,19 @@ use warnings;
 use strict;
 use Data::Dumper;
 
+no warnings 'recursion';
+
+sub getLength{
+	my $i = shift; #perl is very weird about subroutine arguments.
+	if($i == 1){
+		return 0;
+	}elsif($i % 2){
+		return getLength(3*$i+1) + 1;
+	}else{
+		return getLength($i >> 1) + 1;
+	}
+}
+
 # The version of Perl installed on Cobra uses 8-byte integers.
 # setup
 my $length = 0;
@@ -18,18 +31,8 @@ for(my $i = 0; $i < 10; $i++){
 }
 
 # calculations
-for (my $n = 2; $n <= 10000000; $n++){
-	$i = $n;
-	$length = 0;
-	#math
-	while ($i > 1){
-		if($i % 2){
-			$i = 3*$i+1;
-		}else{
-			$i = $i >> 1;
-		}
-		$length++;
-	}
+for (my $n = 2; $n <= 1000000; $n++){
+	$length = getLength($n);
 	#longest elements tracking
 	if($length > $tenth){
 		my @newentry = ($n, $length);
