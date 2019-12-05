@@ -4,18 +4,6 @@
 #include <deque>
 #include <algorithm>
 
-/* A note on the includes:
- * Utility provides pair, a nice container class.
- * stdint.h provides integer primitive types designated by size.
- * deque is a double ended queue.
- * algorithm provides std::sort.
- */
-
-//A couple of testing limits.
-#define FIVE_BIL 5000000001
-#define FIVE_MIL 5000001
-#define TWTY_MIL 20000001
-
 //Typedef! renames a type. shortens big ol' templated type name into something more convenient.
 typedef std::pair<uint64_t, uint64_t> intpair;
 
@@ -31,7 +19,7 @@ int main(){
 	}
 	uint64_t tenth = 0;
 	
-	for(uint64_t n = 1; n < FIVE_MIL; ++n){
+	for(uint64_t n = 1; n <= 10000000; ++n){
 		i = n;
 		length = 0;
 		while(i > 1){
