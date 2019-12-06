@@ -3,7 +3,7 @@ import java.util.*;
 // Object oriented design is best suited for larger applications.
 // To take advantage of this, Object-oriented languages require double the amount of code.
 
-class Collatz
+class ReCollatz
 {
 	public static void main(String args[]){
 		//setup
@@ -16,17 +16,8 @@ class Collatz
 		}
 		
 		//calculation
-		for(long n = 2; n <= 10000000L; n++){
-			i = n;
-			length = 0;
-			while(i >1){
-				if(i % 2 == 1){
-					i = 3*i+1;
-				}else{
-					i = i >> 1;
-				}
-				length++;
-			}
+		for(long n = 2; n <= 1000000L; n++){
+			length = getLength(n);
 			//longest element tracking
 			if(length > tenth){
 				//System.out.println(n + " -> " + length + ", \t " + tenth);
@@ -46,6 +37,15 @@ class Collatz
 		Collections.sort(biggest, new LPcompar());
 		for(LongPair x : biggest){
 			System.out.println("Number = " + x.first + ", Length = " + x.second);
+		}
+	}
+	public static long getLength(long i){
+		if(i==1){
+			return 0;
+		}else if(i%2==1){
+			return getLength(i*3+1)+1;
+		}else{
+			return getLength(i>>1)+1;
 		}
 	}
 }

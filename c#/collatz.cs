@@ -13,7 +13,7 @@ class Collatz{
 			biggest.Add(new Tuple<ulong, ulong>(0, 0));
 		}
 		//calculation
-		for(ulong n = 2; n <= 100000000; n++){
+		for(ulong n = 2; n <= 10000000; n++){
 			i = n;
 			length = 0;
 			while(i > 1){
