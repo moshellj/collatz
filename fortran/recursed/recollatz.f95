@@ -1,23 +1,14 @@
 program collatz
     !declarations
     implicit none
-    integer(kind=8), parameter :: nmax = 10000000
-    integer(kind=8) :: i, n, length, tenth, temp
+    integer(kind=8), parameter :: nmax = 1000000
+    integer(kind=8) :: j, n, length, tenth, temp
     integer(kind=8), dimension(20) :: biggest
     !main
     biggest = 0
     tenth = 0
     do n = 2, nmax
-        i = n
-        length = 0
-        do while (i > 1) !compute
-            if (mod(i, 2) .ne. 0) then
-                i = 3*i+1
-            else
-                i = i/2
-            endif
-            length = length + 1
-        enddo
+        length = getLength(n)
         if (length >= tenth) then !largest element tracking
             !print *, n, " -> ", length
             biggest(19) = length
@@ -30,18 +21,18 @@ program collatz
     print *, "Largest elements:"
     print *, " "
     print *, "By length:"
-    do i = 1, 19, 2
-        print "(AI0AI0)", "Number = ", biggest(i+1), ", Length = ", biggest(i)
+    do j = 1, 19, 2
+        print "(AI0AI0)", "Number = ", biggest(j+1), ", Length = ", biggest(j)
         !swap
-        temp = biggest(i)
-        biggest(i) = biggest(i+1)
-        biggest(i+1) = temp
+        temp = biggest(j)
+        biggest(j) = biggest(j+1)
+        biggest(j+1) = temp
     enddo
     call sort(biggest)
     print *, " "
     print *, "By size:"
-    do i = 1, 19, 2
-        print "(AI0AI0)", "Number = ", biggest(i), ", Length = ", biggest(i+1)
+    do j = 1, 19, 2
+        print "(AI0AI0)", "Number = ", biggest(j), ", Length = ", biggest(j+1)
     enddo
     
 contains
@@ -66,4 +57,15 @@ contains
             enddo
         enddo
     end subroutine sort
+    
+    recursive function getLength(i) result(leng)
+        integer(kind=8) :: i, leng
+        if(i .eq. 1) then
+            leng = 0
+        elseif(mod(i, 2) .ne. 0) then
+            leng = getLength(3*i+1)+1
+        else
+            leng = getLength(i/2)+1
+        endif
+    end function getLength
 end program collatz
