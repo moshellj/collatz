@@ -4,21 +4,22 @@ using Printf
 #Useful builtin sorting functions means this one is real short and easy to read.
 #Pretty fast, too.
 
+function getLength(i)
+	if(i <= 1)
+		return 0
+	elseif((i%2) == 0)
+		return getLength(i>>1)+1
+	else
+		return getLength(3*i+1)+1
+	end
+end
+
 biggest = zeros(Int64, 10, 2)
 tenth = 0
-for n = 1:10000000
+for n = 1:1000000
 	global tenth
 	global biggest
-	length = 0
-	i = n
-	while i > 1
-		if (i % 2) == 0
-			i = i >> 1
-		else
-			i = 3*i+1
-		end
-		length = length + 1
-	end
+	length = getLength(n)
 	if length >= tenth
 		#@printf("%d\t%d\n", n, length)
 		biggest[1, 2] = n
