@@ -50,22 +50,22 @@ begin
 	end loop;
 	tenth := 0;
 	--loop
-	for n in long_integer range 2..1000000 loop
+	for n in long_integer range 2..5000000000 loop
 		length := getlen(n);
 		if length > tenth then
 			--add new entry and sort
 			biggest(10)(2) := n;
 			biggest(10)(1) := length;
 			sort(biggest);
-			--put(integer(n)'image); put(" -> "); put_line(integer(length)'image);
+			--put(long_integer(n)'image); put(" -> "); put_line(long_integer(length)'image);
 			tenth := biggest(10)(1);
 		end if;
 	end loop;
 	--display
 	put_line("Largest sequences:");new_line(1);put_line("By length:");
 	for x in 1..10 loop
-		put("Number = ");put(integer(biggest(x)(2))'image);
-		put(", Length = ");put_line(integer(biggest(x)(1))'image);
+		put("Number = ");put(long_integer(biggest(x)(2))'image);
+		put(", Length = ");put_line(long_integer(biggest(x)(1))'image);
 		--swap
 		temp := biggest(x)(1);
 		biggest(x)(1) := biggest(x)(2);
@@ -74,7 +74,7 @@ begin
 	new_line(1);put_line("By size:");
 	sort(biggest);
 	for x in 1..10 loop
-		put("Number = ");put(integer(biggest(x)(1))'image);
-        put(", Length = ");put_line(integer(biggest(x)(2))'image);
+		put("Number = ");put(long_integer(biggest(x)(1))'image);
+        put(", Length = ");put_line(long_integer(biggest(x)(2))'image);
 	end loop;
 end collatz;
