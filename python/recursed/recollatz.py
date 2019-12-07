@@ -15,7 +15,7 @@ tenth = 0;
 
 biggest = [[0, 0] for x in range(10)]
 
-for n in range(1, 1000000):
+for n in range(1, 5000000000):
 	length = getLength(n)
 	if(length > tenth):#top 10 longest sequences
 		biggest[0] = [length, n]

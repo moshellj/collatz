@@ -4,12 +4,6 @@
 #include <deque>
 #include <algorithm>
 
-//A couple of testing limits.
-#define FIVE_BIL 5000000001
-#define FIVE_MIL 5000001
-#define TWTY_MIL 20000001
-#define ONE_MIL 1000001
-
 //Typedef! renames a type. shortens big ol' templated type name into something more convenient.
 typedef std::pair<uint64_t, uint64_t> intpair;
 
@@ -35,7 +29,7 @@ int main(){
 	}
 	uint64_t tenth = 0;
 	
-	for(uint64_t n = 1; n < ONE_MIL; ++n){
+	for(uint64_t n = 1; n <= 5000000000; ++n){
 		length = getLength(n);
 		if(length > tenth){
 			//new element for list

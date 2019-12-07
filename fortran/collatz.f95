@@ -1,13 +1,14 @@
 program collatz
     !declarations
     implicit none
-    integer(kind=8), parameter :: nmax = 10000000
+    integer, parameter :: mk = 8 !fixes literals
+    integer(kind=8), parameter :: nmax = 5000000000_mk
     integer(kind=8) :: i, n, length, tenth, temp
     integer(kind=8), dimension(20) :: biggest
     !main
     biggest = 0
     tenth = 0
-    do n = 2, nmax
+    do n = 2_mk, nmax
         i = n
         length = 0
         do while (i > 1) !compute

@@ -19,7 +19,7 @@ int main(){
 	}
 	uint64_t tenth = 0;
 	
-	for(uint64_t n = 1; n <= 10000000; ++n){
+	for(uint64_t n = 2; n <= 5000000000; ++n){
 		i = n;
 		length = 0;
 		while(i > 1){
@@ -30,7 +30,7 @@ int main(){
 			}
 			++length;
 		}
-		if(length > tenth){
+		if(length >= tenth){
 			//new element for list
 			//printf("n= %lu, L= %lu\n", n, length);//info; comment out later
 			biggest.pop_front();

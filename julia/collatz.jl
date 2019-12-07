@@ -6,7 +6,7 @@ using Printf
 
 biggest = zeros(Int64, 10, 2)
 tenth = 0
-for n = 1:10000000
+for n = 2:5000000000
 	global tenth
 	global biggest
 	length = 0

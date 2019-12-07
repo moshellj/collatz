@@ -13,7 +13,7 @@ class Collatz{
 			biggest.Add(new Tuple<ulong, ulong>(0, 0));
 		}
 		//calculation
-		for(ulong n = 2; n <= 1000000; n++){
+		for(ulong n = 2; n <= 5000000000; n++){
 			length = getLength(n);
 			//largest element tracking
 			if(length >= tenth){

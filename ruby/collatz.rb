@@ -5,7 +5,7 @@
 $biggest = Array.new(10) { Array.new(2, 0) }
 $tenth = 0
 $maxlength = 0
-for n in 2..10000000
+for n in 2..5000000000
 	length = 0
 	i = n
 	while i > 1 do

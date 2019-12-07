@@ -7,7 +7,7 @@ tenth = 0;
 
 biggest = [[0, 0] for x in range(10)]
 
-for n in range(1, 10000000):
+for n in range(1, 5000000000):
 	i = n
 	length = 0
 	while(i > 1):

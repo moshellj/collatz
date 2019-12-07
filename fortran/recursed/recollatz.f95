@@ -1,13 +1,14 @@
 program collatz
     !declarations
     implicit none
-    integer(kind=8), parameter :: nmax = 1000000
+    integer, parameter :: mk = 8
+    integer(kind=8), parameter :: nmax = 5000000000_mk
     integer(kind=8) :: j, n, length, tenth, temp
     integer(kind=8), dimension(20) :: biggest
     !main
     biggest = 0
     tenth = 0
-    do n = 2, nmax
+    do n = 2_mk, nmax
         length = getLength(n)
         if (length >= tenth) then !largest element tracking
             !print *, n, " -> ", length

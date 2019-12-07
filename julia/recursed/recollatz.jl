@@ -16,7 +16,7 @@ end
 
 biggest = zeros(Int64, 10, 2)
 tenth = 0
-for n = 1:1000000
+for n = 1:5000000000
 	global tenth
 	global biggest
 	length = getLength(n)

@@ -31,7 +31,7 @@ for(my $i = 0; $i < 10; $i++){
 }
 
 # calculations
-for (my $n = 2; $n <= 1000000; $n++){
+for (my $n = 2; $n <= 5000000000; $n++){
 	$length = getLength($n);
 	#longest elements tracking
 	if($length > $tenth){

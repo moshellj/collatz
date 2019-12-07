@@ -18,7 +18,7 @@ for(my $i = 0; $i < 10; $i++){
 }
 
 # calculations
-for (my $n = 2; $n <= 10000000; $n++){
+for (my $n = 2; $n <= 5000000000; $n++){
 	$i = $n;
 	$length = 0;
 	#math

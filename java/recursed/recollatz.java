@@ -16,7 +16,7 @@ class ReCollatz
 		}
 		
 		//calculation
-		for(long n = 2; n <= 1000000L; n++){
+		for(long n = 2; n <= 5000000000L; n++){
 			length = getLength(n);
 			//longest element tracking
 			if(length > tenth){

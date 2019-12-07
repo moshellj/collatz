@@ -16,7 +16,7 @@ class Collatz
 		}
 		
 		//calculation
-		for(long n = 2; n <= 10000000L; n++){
+		for(long n = 2L; n <= 5000000000L; n++){
 			i = n;
 			length = 0;
 			while(i >1){
