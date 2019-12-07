@@ -2,10 +2,20 @@
 
 # Useful standard sort makes this one ultra-compact and easy to read.
 
+def getLength(i)
+	if i == 1 then
+		return 0
+	elsif i % 2 == 1 then
+		return getLength(3*i+1)+1
+	else
+		return getLength(i >> 1)+1
+	end
+end
+
 $biggest = Array.new(10) { Array.new(2, 0) }
 $tenth = 0
 $maxlength = 0
-for n in 2..10000000
+for n in 2..1000000
 	length = 0
 	i = n
 	while i > 1 do
